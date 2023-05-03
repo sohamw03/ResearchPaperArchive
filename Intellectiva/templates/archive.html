@@ -1,0 +1,55 @@
+{% extends './base.html' %} 
+
+{% block title %}Blog{% endblock title %} 
+
+{% block css %}
+<style>
+    .sidecont {
+        height: 100%;
+        width: 100%;
+    }
+
+    .sidecont p {
+        overflow-y: hidden;
+    }
+
+    .papercard {
+        height: 17rem;
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<section class="py-5" id="features">
+    <div class="container px-5 md-2">
+        <h2 class="fw-bolder">Journals and articles</h2>
+        <div class="row my-3">
+            {% for paper in allPapers %}
+            <div
+                class="row g-0 border border-2 rounded-4 overflow-hidden flex-md-row mb-4 h-md-250 position-relative papercard">
+                <div class="col p-4 d-flex flex-column position-static sidecont">
+                    <h3 class="mb-0">{{paper.title|truncatechars:80}}</h3>
+                    <div class="mb-1 text-muted">{{paper.timestamp}} by {{paper.author|truncatechars:80}}</div>
+                    <p class="card-text mb-1">
+                    <div class="preview">{{paper.description|truncatechars:800}}
+                    </div>
+                    </p>
+                    <a href="{{paper.get_absolute_url}}" class="stretched-link text-decoration-none">Continue
+                        reading...</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock body %} 
+
+{% block js %}
+<script>
+    document.getElementById("archive").className = "nav-link active";
+    let previews = document.getElementsByClassName('preview');
+    Array.from(previews).forEach((element) => {
+        element.innerHTML = element.innerText;
+    });
+</script>
+{% endblock js %}

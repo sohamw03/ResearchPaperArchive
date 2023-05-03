@@ -1,0 +1,87 @@
+{% extends './base.html' %}
+{% block title %}Blog{% endblock title %}
+
+{% block css %}
+<style>
+    header {
+        position: relative;
+    }
+
+    header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        /* {% load static %} */
+        background-image: url("{% static 'images/home-background.jpg' %}");
+        filter: brightness(60%);
+    }
+
+    #hdr-content {
+        position: relative;
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<header class="bg-dark py-5">
+    <div class="container px-5" id="hdr-content">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center my-5">
+                    <h1 class="display-1 fw-bolder text-white mb-2">Intellectiva</h1>
+                    <p class="lead text-white mb-4">Preserving Knowledge, Empowering Progress: A Comprehensive
+                        Archive of Research Papers</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a class="btn btn-success btn-lg px-4 me-sm-3" href="/archive">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<article>
+    <div class="container p-5">
+        <h4 class="my-4 fw-normal text-center">Members of our group</h4>
+        <table class="table table-bordered table-hover rounded rounded-4">
+            <tr class="table-active">
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>PRN No</th>
+            </tr>
+            <tr>
+                <td>Soham Waghmare</td>
+                <td>273055</td>
+                <td>22111255</td>
+            </tr>
+            <tr>
+                <td>Sahil Sonawane</td>
+                <td>273057</td>
+                <td>22110784</td>
+            </tr>
+            <tr>
+                <td>Swarup Bhosale</td>
+                <td>273061</td>
+                <td>22110019</td>
+            </tr>
+            <tr>
+                <td>Soham Wadekar</td>
+                <td>273063</td>
+                <td>22110646</td>
+            </tr>
+        </table>
+    </div>
+</article>
+
+
+{% endblock body %}
+
+{% block js %}
+<script>
+    document.getElementById("home").className = "nav-link active";
+</script>
+{% endblock js %}
