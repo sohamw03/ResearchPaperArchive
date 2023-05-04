@@ -61,11 +61,31 @@
                 <form class="d-flex" role="search" action="https://scholar.google.com/scholar" target="_blank"
                     method="get">
                     <input class="form-control me-2 ps-4" type="search" placeholder="Search in Google Scholar"
-                        aria-label="Search" name="q" id="query" autocomplete="off" style="width: 27.2rem; text-align: center;" />
+                        aria-label="Search" name="q" id="query" autocomplete="off"
+                        style="width: 27.2rem; text-align: center;" />
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
+        {% if not user.is_authenticated %}
+        <!-- Button trigger modal -->
+        {% else %}
+        <ul class="navbar-nav mb-2 mb-lg-0 ms-2">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{request.user.username}}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" style="color: red;" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+        {% endif %}
     </nav>
     {% block body %}{% endblock body %}
 </body>

@@ -24,6 +24,11 @@
     #hdr-content {
         position: relative;
     }
+
+    #logo{
+        width: 25%;
+        border-radius: 100%;
+    }
 </style>
 {% endblock css %}
 
@@ -33,11 +38,12 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <div class="text-center my-5">
+                    <img class="img-fluid img-thumbnail" src="{% static 'images/Intellectiva_logo.jpg' %}" alt="" id="logo">
                     <h1 class="display-1 fw-bolder text-white mb-2">Intellectiva</h1>
                     <p class="lead text-white mb-4">Preserving Knowledge, Empowering Progress: A Comprehensive
                         Archive of Research Papers</p>
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-success btn-lg px-4 me-sm-3" href="/archive">Get Started</a>
+                        <a class="btn btn-success btn-lg px-4 me-sm-3" href="/login">Get Started</a>
                     </div>
                 </div>
             </div>
