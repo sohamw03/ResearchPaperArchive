@@ -1,10 +1,17 @@
 {% extends './base.html' %}
-{% block title %}Blog{% endblock title %}
+{% block title %}Intellectiva{% endblock title %}
 
 {% block css %}
 <style>
     header {
-        position: relative;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        display: grid;
+        place-content: center;
     }
 
     header::before {
@@ -19,13 +26,18 @@
         /* {% load static %} */
         background-image: url("{% static 'images/home-background.jpg' %}");
         filter: brightness(60%);
+        z-index: -1;
+    }
+
+    nav {
+        z-index: 2;
     }
 
     #hdr-content {
         position: relative;
     }
 
-    #logo{
+    #logo {
         width: 25%;
         border-radius: 100%;
     }
@@ -38,7 +50,8 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-6">
                 <div class="text-center my-5">
-                    <img class="img-fluid img-thumbnail" src="{% static 'images/Intellectiva_logo.jpg' %}" alt="" id="logo">
+                    <img class="img-fluid img-thumbnail" src="{% static 'images/Intellectiva_logo.jpg' %}" alt=""
+                        id="logo">
                     <h1 class="display-1 fw-bolder text-white mb-2">Intellectiva</h1>
                     <p class="lead text-white mb-4">Preserving Knowledge, Empowering Progress: A Comprehensive
                         Archive of Research Papers</p>
@@ -50,39 +63,6 @@
         </div>
     </div>
 </header>
-<article>
-    <div class="container p-5">
-        <h4 class="my-4 fw-normal text-center">Members of our group</h4>
-        <table class="table table-bordered table-hover rounded rounded-4">
-            <tr class="table-active">
-                <th>Name</th>
-                <th>Roll No</th>
-                <th>PRN No</th>
-            </tr>
-            <tr>
-                <td>Soham Waghmare</td>
-                <td>273055</td>
-                <td>22111255</td>
-            </tr>
-            <tr>
-                <td>Sahil Sonawane</td>
-                <td>273057</td>
-                <td>22110784</td>
-            </tr>
-            <tr>
-                <td>Swarup Bhosale</td>
-                <td>273061</td>
-                <td>22110019</td>
-            </tr>
-            <tr>
-                <td>Soham Wadekar</td>
-                <td>273063</td>
-                <td>22110646</td>
-            </tr>
-        </table>
-    </div>
-</article>
-
 
 {% endblock body %}
 
